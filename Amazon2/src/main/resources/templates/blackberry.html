@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blackberry</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #dfe6e9; text-align: center; padding-top: 40px; }
+        h1 { color: #2d3436; margin-bottom: 20px; }
+        .devices-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .device-card {
+            background: #fff;
+            border: 1px solid #b2bec3;
+            border-radius: 12px;
+            margin: 16px;
+            padding: 24px 32px;
+            min-width: 220px;
+            box-shadow: 0 2px 6px rgba(100,100,100,0.07);
+            text-align: left;
+        }
+        .device-card h3 {
+            color: #6c3483;
+            margin-bottom: 10px;
+        }
+        .device-card p {
+            margin: 8px 0 0;
+            color: #636e72;
+        }
+        .btn {
+            background-color: #6c3483;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            margin-top: 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn:hover { background-color: #b2bec3; }
+    </style>
+</head>
+<body>
+    <h1>Blackberry Devices</h1>
+    <div class="devices-container">
+        <!-- Loop through the devices using Thymeleaf -->
+        <div class="device-card" th:each="device : ${blackberry.devices}">
+            <h3 th:text="${device.name}">Device Name</h3>
+            <p><strong>ID:</strong> <span th:text="${device.id}">1</span></p>
+            <p><strong>Type:</strong> <span th:text="${device.type}">Smart Phone</span></p>
+        </div>
+    </div>
+    <button class="btn" onclick="window.location.href='/home'">Back to Home</button>
+</body>
